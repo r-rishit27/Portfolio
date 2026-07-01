@@ -118,4 +118,45 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ── Contact Form (Web3Forms) ───────────────── */
+  var form       = document.getElementById('contactForm');
+  var submitBtn  = document.getElementById('formSubmit');
+  var submitText = document.getElementById('submitText');
+  var status     = document.getElementById('formStatus');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      var data = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (json.success) {
+          status.className = 'form-status success';
+          status.textContent = '✓ Message sent! I\'ll get back to you within 24 hours.';
+          form.reset();
+        } else {
+          throw new Error(json.message || 'Submission failed');
+        }
+      })
+      .catch(function (err) {
+        status.className = 'form-status error';
+        status.textContent = '✗ Something went wrong. Please email me directly at r.rishit27@gmail.com';
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Send Message';
+      });
+    });
+  }
+
 });
