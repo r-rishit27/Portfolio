@@ -245,13 +245,6 @@ body {
   overflow: hidden;
 }
 
-#particleCanvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.6;
-}
-
 .hero-noise {
   position: absolute;
   inset: 0;
@@ -850,17 +843,23 @@ body {
   border-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
 }
-.project-link {
-  display: inline-block;
+.project-links {
+  display: flex;
+  gap: 16px;
   margin-top: 16px;
+  flex-wrap: wrap;
+}
+.project-link {
   color: var(--accent);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   font-weight: 600;
-  transition: color 0.2s, letter-spacing 0.2s;
+  transition: color 0.2s;
   cursor: none;
 }
-.project-link:hover { color: var(--accent2); letter-spacing: 0.02em; }
+.project-link:hover { color: var(--accent2); }
+.github-link { color: var(--muted); }
+.github-link:hover { color: var(--text); }
 
 /* ── SKILLS ───────────────────────────────────────── */
 .skills-grid {
