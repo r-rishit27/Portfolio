@@ -28,44 +28,6 @@ body {
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
-  cursor: none;
-}
-
-@media (pointer: coarse) {
-  body { cursor: auto; }
-  .cursor-dot, .cursor-ring { display: none; }
-}
-
-/* ── Custom Cursor ────────────────────────────────── */
-.cursor-dot {
-  position: fixed;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: screen;
-}
-.cursor-ring {
-  position: fixed;
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(99,102,241,0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.35s ease, height 0.35s ease, border-color 0.2s, opacity 0.2s;
-}
-.cursor-ring.hovered {
-  width: 56px; height: 56px;
-  border-color: var(--accent);
-  background: rgba(99,102,241,0.06);
-}
-.cursor-ring.clicked {
-  width: 24px; height: 24px;
-  border-color: var(--accent2);
 }
 
 /* ── Typography ───────────────────────────────────── */
@@ -96,7 +58,7 @@ body {
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.01em;
-  cursor: none;
+  cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   text-decoration: none;
   border: none;
@@ -185,7 +147,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   transition: color 0.2s;
-  cursor: none;
+  cursor: pointer;
 }
 .nav-links a:hover { color: #fff; }
 .nav-cta { display: none; }
@@ -528,7 +490,7 @@ body {
   font-size: 0.875rem;
   font-weight: 500;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: none;
+  cursor: pointer;
 }
 .social-link svg { width: 17px; height: 17px; }
 .social-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 24px rgba(99,102,241,0.2); }
@@ -855,7 +817,7 @@ body {
   font-size: 0.83rem;
   font-weight: 600;
   transition: color 0.2s;
-  cursor: none;
+  cursor: pointer;
 }
 .project-link:hover { color: var(--accent2); }
 .github-link { color: var(--muted); }
@@ -890,7 +852,7 @@ body {
   border-radius: 8px;
   font-weight: 500;
   transition: background 0.2s, transform 0.2s;
-  cursor: default;
+  cursor: auto;
 }
 .skill-chips span:hover { background: rgba(99,102,241,0.18); transform: translateY(-2px); }
 
@@ -959,7 +921,7 @@ body {
   font-size: 0.88rem;
   font-weight: 500;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: none;
+  cursor: pointer;
 }
 .contact-card svg { width: 19px; height: 19px; flex-shrink: 0; }
 .contact-card:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-4px) scale(1.02); box-shadow: 0 12px 32px rgba(99,102,241,0.2); }
@@ -993,7 +955,7 @@ body {
   text-decoration: none;
   font-size: 0.83rem;
   transition: color 0.2s;
-  cursor: none;
+  cursor: pointer;
 }
 .footer-links a:hover { color: var(--accent); }
 
